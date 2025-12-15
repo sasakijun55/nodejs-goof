@@ -14,7 +14,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # Node.jsプロジェクト向けのSnyk公式アクション（CLIセットアップ不要）
+      # Snyk公式アクション（Node.js用）
       - name: Snyk test (Node.js)
         uses: snyk/actions/node@v0
         env:
@@ -22,3 +22,10 @@ jobs:
         with:
           command: test
           args: --severity-threshold=medium
+
+      # ダッシュボード連携（結果をSnyk UIに送信）
+      - name: Snyk monitor
+        uses: snyk/actions/node@v0
+               env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
