@@ -18,14 +18,3 @@ jobs:
         uses: snyk/actions/node@v0
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        with:
-          command: test
-          args: --severity-threshold=medium
-
-      - name: Snyk monitor
-        if: always()
-        uses: snyk/actions/node@v0
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        with:
-         
