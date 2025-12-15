@@ -11,19 +11,14 @@ jobs:
   snyk:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Install Snyk CLI
-        run: npm install -g snyk
-
-      - name: Run Snyk Test
-               run: snyk test --severity-threshold=medium
+      # Node.jsプロジェクト向けのSnyk公式アクション（CLIセットアップ不要）
+      - name: Snyk test (Node.js)
+        uses: snyk/actions/node@v0
         env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          command: test
+          args: --severity-threshold=medium
