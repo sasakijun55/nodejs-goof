@@ -19,7 +19,7 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
-                   command: test
+          command: test
           args: --severity-threshold=medium
 
       - name: Snyk monitor
@@ -28,3 +28,4 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
+         
