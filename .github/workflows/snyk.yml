@@ -1,5 +1,6 @@
 
 name: Snyk Security Scan
+
 on:
   pull_request:
     branches: [ main ]
@@ -23,6 +24,8 @@ jobs:
       - name: Install Snyk CLI
         run: npm install -g snyk
 
-      -      - name: Run Snyk Test
+      - name: Run Snyk Test
         run: snyk test --severity-threshold=medium
         env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+``
