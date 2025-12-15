@@ -25,7 +25,5 @@ jobs:
         run: npm install -g snyk
 
       - name: Run Snyk Test
-        run: snyk test --severity-threshold=medium
+               run: snyk test --severity-threshold=medium
         env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-``
