@@ -23,6 +23,6 @@ jobs:
       - name: Install Snyk CLI
         run: npm install -g snyk
 
-      - name: Run Snyk Test
-               run: snyk test --severity-threshold=medium
+      -      - name: Run Snyk Test
+        run: snyk test --severity-threshold=medium
         env:
