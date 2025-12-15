@@ -23,7 +23,6 @@ jobs:
           args: --severity-threshold=medium
 
       - name: Snyk monitor
+        if: always()               # テストがFailでもダッシュボードに送る
         uses: snyk/actions/node@v0
         env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-               with:
